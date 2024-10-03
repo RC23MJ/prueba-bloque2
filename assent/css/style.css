@@ -1,0 +1,452 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    
+    font-family: sans-serif;
+    background-image: url(../img/fondo.png); 
+    margin: 0;
+    padding: 0;
+    color: rgb(167, 173, 206);
+    scrollbar-width: none;
+    
+    
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+    'header'
+    'main-wrapper'
+    'footer';
+    grid-template-columns: 1fr;
+    
+}
+
+/* header */
+
+
+.box {
+    display: none;
+}
+
+.header {
+    background-color: #0006 ;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    z-index: 100;
+    
+    
+}
+
+.header_open-nav-button {
+    
+    color: white;        
+    font-size: 2rem;     
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    z-index: 200;
+    
+}
+
+.header_checkbox {
+    display: none;
+}
+
+.header_nav {
+    display: none;    
+    position: fixed ;
+    height: 100vh;
+    width: 100vw;
+    top: -16px;
+    left: 0;
+    background-color: #0006;
+    z-index: 150;
+    
+    
+}
+
+.header_nav-list {  
+    background-image: url(../img/merlin.png);
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+    height: 100vh;
+    width: 100vw;
+    
+    
+}
+
+.header_nav-list img { 
+
+    margin-top: 20px;
+    width: 100px; 
+    
+}
+
+.header_checkbox:checked ~ .header_nav {
+
+    display: flex;   
+
+}
+
+
+.header-datos i {
+    font-size: 2.5rem;
+    padding-right: 30px;
+}
+
+.header-datos li {
+    
+    list-style: none;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;   
+}
+
+.header-datos p {
+    font-family: "Permanent Marker", cursive;
+    font-size: 1.8rem;
+    padding-left: 30px;
+}
+
+.header_nav-item {
+    list-style: none;
+    text-decoration: none;
+    
+
+}
+
+
+
+.header_nav-item a {
+
+    text-decoration: none;
+    color: white;
+    font-size: 1.4rem;    
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
+
+.header_nav-item a:hover {    
+    
+    background-color: rgb(228, 23, 23); 
+    
+}
+
+
+
+
+/* fin header */
+
+/* main */
+
+.main-wrapper {
+    margin-top: 20px;
+}
+
+.venta_carta {
+    display: flex;
+    flex-direction: column;    
+    gap: 2rem;
+    align-items: center;
+    
+}
+
+
+.carta {
+    display: flex;
+    flex-direction: column;    
+    gap: 5rem;
+    width: 75%;
+    
+}
+
+.venta {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.compra {
+    background-color: rgb(88, 85, 238);
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+article {
+    position: relative;
+    width: 100%;
+    transition: all 0.3s ease;
+    
+}
+
+article img:first-child {
+    width: 100%;
+    box-shadow: 0 60px 60px -60x rgba(0, 30, 255, 0.5);
+    border-radius: 4px;
+    object-fit: cover;
+    
+}
+
+article img:last-child {
+    position: absolute;
+    width: 80%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(25%);
+    transition: 0.3s ease;
+    opacity: 0;
+}
+
+article:hover {
+    transform: perspective(250px) rotateX(10deg) translateY(-5%) translateZ(0);
+}
+
+article::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+    to bottom,
+    transparent 10%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0) 95%
+    );
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+article:hover::before {
+    opacity: 1;
+}
+
+article:hover img:last-child {
+    opacity: 1;
+    transform: translateY(10%);
+}
+
+/* fin main */
+
+/* footer */
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #0006;    
+    text-align: center;
+    color: #ccc;
+    position: static;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    gap: 10px;
+    
+    
+}
+
+
+
+.iconos-redes-sociales i {
+    color: white;
+    font-size: 3rem;
+    transition: all 0.2s ease-in;
+}
+
+
+
+.iconos-redes-sociales a:hover i {
+    color: black;
+}
+
+/* fin footer */
+
+/* Media queries para pantallas más grandes */
+
+
+@media (min-width: 576px) and (max-width: 768px) {
+
+    .header_open-nav-button {
+    
+        color: white;        
+        font-size: 2rem;     
+        margin-right: -10px;
+        border-radius: 5px;
+        cursor: pointer;
+        position: fixed;
+        top: 10px;        
+        z-index: 200;
+        
+    }
+
+
+
+    .venta_carta {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .carta {
+        width: 40%; 
+    }
+}
+
+
+@media (min-width: 768px) {
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "filtros main-principal"
+            "footer main-principal";
+    }
+
+    .box {
+        display: flex;
+    }
+
+
+    .header label {
+        display: none;
+    }
+
+    .header-titulo {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header_nav {
+        
+        display: flex;
+        position: fixed;
+        width: 200px;
+        height: 90vh;
+        background-color: transparent;
+        top: 0;
+        left: 0;        
+        
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 50px;
+    }
+
+    .header_nav-list {
+        background-image: none;
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .header_nav-list img {
+        width: 80%;
+        margin-bottom: 20px;
+        margin-top: 50px;
+    }
+
+    .header_nav-item a {
+        font-size: 1.2rem;
+        padding: 15px 20px;
+        text-align: left;
+        width: 100%;
+        background-color: transparent;
+    }
+
+    .header_nav-item a:hover {
+        background-color: rgba(31, 92, 172, 0.568);
+    }
+
+    .main-wrapper {
+        margin-top: 20px;
+        margin-left: 100px; 
+        padding-left: 15px;
+    }
+
+    .venta_carta {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .carta {
+
+        
+        width: 24%;
+    }
+
+    .box {
+        
+
+        margin-left: 100px;
+        height: 50vh;
+        width: 80vw;       
+
+        
+    }
+    
+    .opaco {
+        
+        
+        background-color: #0006;
+        
+        
+    }
+
+    .opaco p {
+        
+        
+        color: white;
+        font-size: 1rem;
+        
+    }
+
+
+
+}
+
+/* footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #0006;    
+    text-align: center;
+    color: #ccc;
+    position: static;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    gap: 10px;
+    z-index: 150;
+}
+
